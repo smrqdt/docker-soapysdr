@@ -1,15 +1,15 @@
 version: "3"
 services:
   soapysdr:
-    image: hbaier/soapysdr
+    image: ghcr.io/smrqdt/docker-soapysdr:main
     container_name: soapysdr
     environment:
-      SOAPY_REMOTE_IP_ADDRESS: [::]
+      SOAPY_REMOTE_IP_ADDRESS: "[::]"
       SOAPY_REMOTE_PORT: 55132
-    network_mode: host
     devices:
-      - /dev/bus/usb/001/004:/dev/bus/usb/001/004
-      - /dev/bus/usb/001/005:/dev/bus/usb/001/005
-      - /dev/bus/usb/001/006:/dev/bus/usb/001/006
-      - /dev/bus/usb/001/007:/dev/bus/usb/001/007
+      - /dev/bus/usb:/dev/bus/usb
+      # - /dev/rtlsdr/:/dev/rtlsdr/
+    network_mode: host
+    # ports:
+    #   - 55132:55132
     restart: unless-stopped
