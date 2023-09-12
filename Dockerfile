@@ -21,7 +21,8 @@ RUN apt-get update && \
     soapysdr-module-rtlsdr \
     soapysdr-module-uhd \
     soapysdr-tools \
-    supervisor && \
+    supervisor \
+    iproute2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/dbus && \
